@@ -1,0 +1,46 @@
+package com.vcgo.item.listener;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.MessageCreator;
+
+import com.vcgo.item.pojo.Item;
+import com.vcgo.pojo.TbItem;
+import com.vcgo.pojo.TbItemDesc;
+import com.vcgo.service.ItemService;
+
+public class GenListener implements MessageListener {
+
+	@Autowired
+	private ItemService itemService;
+	@Autowired
+	private  FreeMarkerConfigurer freeMakerConfiguration;
+	
+	@Override
+	public void onMessage(Message message) {
+		TextMessage textMessage=(TextMessage) message;
+		try {
+			Thread.sleep(1000);
+			String id = textMessage.getText();
+			TbItem tbItem = itemService.geTbItemById(Long.parseLong(id));
+			Item item=new Item();
+			BeanUtils.copyProperties(tbItem, item);
+			TbItemDesc tbItemDesc = itemService.getTbItemDescByItemId(Long.parseLong(id));
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+
+
+}

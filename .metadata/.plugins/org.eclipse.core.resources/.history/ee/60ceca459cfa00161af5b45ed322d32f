@@ -1,0 +1,33 @@
+package com.vcgo.order.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.vcgo.common.pojo.JsonResult;
+import com.vcgo.mapper.TbOrderItemMapper;
+import com.vcgo.mapper.TbOrderMapper;
+import com.vcgo.mapper.TbOrderShippingMapper;
+import com.vcgo.order.jedis.JedisClient;
+import com.vcgo.order.pojo.OrderInfo;
+import com.vcgo.order.service.OrderService;
+@Service
+public class OrderServiceImpl implements OrderService {
+
+	@Autowired
+	private TbOrderMapper tborderMapper;
+	@Autowired
+	private TbOrderItemMapper orderItemMapper;
+	@Autowired
+	private TbOrderShippingMapper orderShippingMapper;
+	@Autowired
+	private JedisClient jedisClient;
+	
+	@Override
+	public JsonResult orderCommit(OrderInfo orderInfo) {
+		
+		String orderInfoId=
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.vcgo.item.pojo;
+
+public class Item {
+
+}

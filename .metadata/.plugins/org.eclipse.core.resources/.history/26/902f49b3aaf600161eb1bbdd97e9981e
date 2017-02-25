@@ -1,0 +1,7 @@
+package com.vcgo.item.listener;
+
+import org.springframework.jms.core.MessageCreator;
+
+public class GenListener implements MessageCreator {
+
+}

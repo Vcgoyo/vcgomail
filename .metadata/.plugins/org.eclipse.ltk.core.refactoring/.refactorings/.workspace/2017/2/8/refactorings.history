@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;vcgo-cart&apos; to &apos;vcgo-cart-web&apos;&#x0D;&#x0A;- Original element: &apos;vcgo-cart&apos;&#x0D;&#x0A;- Renamed element: &apos;vcgo-cart&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;vcgo-cart&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=vcgo-cart" name="vcgo-cart-web" references="true" stamp="1487769573830" version="1.0"/>
+</session>

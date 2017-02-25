@@ -1,0 +1,65 @@
+package com.vcgo.item.listener;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jms.core.MessageCreator;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
+
+import com.vcgo.item.pojo.Item;
+import com.vcgo.pojo.TbItem;
+import com.vcgo.pojo.TbItemDesc;
+import com.vcgo.service.ItemService;
+
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+
+public class GenListener implements MessageListener {
+
+	@Autowired
+	private ItemService itemService;
+	@Autowired
+	private  FreeMarkerConfigurer freeMakerConfiguration;
+	@Value("${HTML_OUT_PATH}")
+	private String HTML_OUT_PATH;
+	
+	@Override
+	public void onMessage(Message message) {
+		TextMessage textMessage=(TextMessage) message;
+		try {
+			Thread.sleep(1000);
+			String id = textMessage.getText();
+			TbItem tbItem = itemService.geTbItemById(Long.parseLong(id));
+			Item item=new Item();
+			BeanUtils.copyProperties(tbItem, item);
+			TbItemDesc tbItemDesc = itemService.getTbItemDescByItemId(Long.parseLong(id));
+			Configuration configuration = freeMakerConfiguration.getConfiguration();
+			Template template = configuration.getTemplate("item.ftl");
+			Map<K, V> data=new HashMap<>();
+			data.put("item", item);
+			data.put("itemDesc",tbItemDesc);
+			Writer writer=new FileWriter(new File(HTML_OUT_PATH+id+".html"))
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+
+
+}

@@ -1,0 +1,7 @@
+package com.vcgo.sso.service;
+
+import com.vcgo.common.pojo.JsonResult;
+
+public interface UserService {
+	JsonResult checkUserMessage(String userMsg,int type);
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=vcgo-manager-interface/src\/main\/java&lt;com.vcgo.service{ItemService.java[ItemService" modifiers="513" timestamp="1487423114128"/>
+<typeInfo handle="=vcgo-search-interface/src\/main\/java&lt;com.vcgo.search.service{SearchService.java[SearchService" modifiers="513" timestamp="1487165632563"/>
+<typeInfo handle="=vcgo-search-service/src\/main\/java&lt;com.vcgo.search.mapper{SearchItemMapper.java[SearchItemMapper" modifiers="513" timestamp="1487391045096"/>
+<typeInfo handle="=vcgo-search-service/E:\/JAVA\/eclipse2017workplace\/Resp\/org\/apache\/activemq\/activemq-all\/5.11.2\/activemq-all-5.11.2.jar&lt;javax.jms(MessageListener.class[MessageListener" modifiers="1537" timestamp="1487381406053"/>
+<typeInfo handle="=vcgo-item-web/E:\/JAVA\/eclipse2017workplace\/Resp\/org\/springframework\/spring-jms\/4.2.4.RELEASE\/spring-jms-4.2.4.RELEASE.jar&lt;org.springframework.jms.core(MessageCreator.class[MessageCreator" modifiers="1537" timestamp="1486567148051"/>
+<typeInfo handle="=vcgo-order-interface/src\/main\/java&lt;com.vcgo.order.service{OrderService.java[OrderService" modifiers="513" timestamp="1487945548465"/>
+<typeInfo handle="=vcgo-order-web/E:\/JAVA\/eclipse2017workplace\/Resp\/org\/springframework\/spring-webmvc\/4.2.4.RELEASE\/spring-webmvc-4.2.4.RELEASE.jar&lt;org.springframework.web.servlet(HandlerInterceptor.class[HandlerInterceptor" modifiers="1537" timestamp="1486567065134"/>
+<typeInfo handle="=vcgo-order-web/E:\/JAVA\/eclipse2017workplace\/Resp\/org\/springframework\/spring-webmvc\/4.2.4.RELEASE\/spring-webmvc-4.2.4.RELEASE.jar&lt;org.springframework.web.servlet(HandlerAdapter.class[HandlerAdapter" modifiers="1537" timestamp="1486567065134"/>
+</typeInfoHistroy>

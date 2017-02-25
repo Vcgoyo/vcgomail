@@ -1,0 +1,123 @@
+package com.vcgo.service.impl;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import com.alibaba.dubbo.common.utils.StringUtils;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.mysql.fabric.xmlrpc.base.Data;
+import com.vcgo.common.pojo.EasyUIDataGridResult;
+import com.vcgo.common.pojo.JsonResult;
+import com.vcgo.common.utils.IDUtils;
+import com.vcgo.common.utils.JsonUtils;
+import com.vcgo.jedis.JedisClient;
+import com.vcgo.mapper.TbItemDescMapper;
+import com.vcgo.mapper.TbItemMapper;
+import com.vcgo.pojo.TbItem;
+import com.vcgo.pojo.TbItemDesc;
+import com.vcgo.pojo.TbItemExample;
+import com.vcgo.service.ItemService;
+
+@Service
+public class ItemServiceImpl implements ItemService {
+
+	
+	@Autowired
+	private TbItemMapper tbItemMapper;
+	@Autowired
+	private TbItemDescMapper tbItemDescMapper;
+	@Autowired
+	private JedisClient jedisClient;
+	@Value("${ITEM_INFO}")
+	private String ITEM_INFO;
+	
+	@Override
+	public TbItem geTbItemById(long id) {
+		try {
+			String item= jedisClient.get(ITEM_INFO+":"+id+":BASE");
+			if(StringUtils.isNotEmpty(item)){
+				return JsonUtils.jsonToPojo(item, TbItem.class);
+			}
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 TbItem tbItem = tbItemMapper.selectByPrimaryKey(id);
+		 try {
+			jedisClient.set(ITEM_INFO+":"+id+":BASE", JsonUtils.objectToJson(tbItem));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 return tbItem;
+	}
+	public TbItemDesc getTbItemDescByItemId(long itemId) {
+		try {
+			String item= jedisClient.get(ITEM_INFO+":"+itemId+":DESC");
+			if(StringUtils.isNotEmpty(item)){
+				return JsonUtils.jsonToPojo(item, TbItemDesc.class);
+			}
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	   TbItemDesc itemDesc = tbItemDescMapper.selectByPrimaryKey(itemId);
+	   try {
+			jedisClient.set(ITEM_INFO+":"+itemId+":DESC", JsonUtils.objectToJson(itemDesc));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	   return itemDesc;
+	}
+
+
+	@Override
+	public EasyUIDataGridResult getItemList(Integer page, Integer rows) {
+		
+		EasyUIDataGridResult result = null;
+		try {
+			PageHelper.startPage(page, rows);
+			TbItemExample example=new TbItemExample();
+			
+			List<TbItem> list = tbItemMapper.selectByExample(example);
+			PageInfo<TbItem> pageInfo=new PageInfo<>(list);
+			result = new EasyUIDataGridResult();
+			result.setTotal(pageInfo.getTotal());
+			result.setRows(list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw e;
+		}
+		return result;
+	}
+
+
+
+	@Override
+	public JsonResult addItem(TbItem item, String desc) {
+		long id=IDUtils.genItemId();
+		item.setId(id);
+		//商品状态，1-正常，2-下架，3-删除
+		item.setStatus((byte)1);
+		item.setCreated(new Date());
+		item.setUpdated(new Date());
+		tbItemMapper.insert(item);
+		
+		TbItemDesc tbItemDesc=new TbItemDesc();
+		tbItemDesc.setItemId(id);
+		tbItemDesc.setCreated(new Date());
+		tbItemDesc.setUpdated(new Date());
+		tbItemDesc.setItemDesc(desc);
+		
+		tbItemDescMapper.insert(tbItemDesc);
+		System.out.println(item.getId());
+		return JsonResult.ok(item);
+	}
+}

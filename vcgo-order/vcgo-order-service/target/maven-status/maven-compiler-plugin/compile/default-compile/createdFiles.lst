@@ -1,0 +1,4 @@
+com\vcgo\order\jedis\JedisClientCluster.class
+com\vcgo\order\jedis\JedisClientPool.class
+com\vcgo\order\service\impl\OrderServiceImpl.class
+com\vcgo\order\jedis\JedisClient.class

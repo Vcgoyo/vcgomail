@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;vcgo-order-web&apos;&#x0D;&#x0A;- Original project: &apos;vcgo-order-web&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     css&#x0D;&#x0A;     images&#x0D;&#x0A;     js&#x0D;&#x0A;     jsp" description="Delete elements" element1="src/main/webapp/WEB-INF/js" element2="src/main/webapp/WEB-INF/jsp" element3="src/main/webapp/WEB-INF/css" element4="src/main/webapp/WEB-INF/images" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="4" stamp="1487774147529" subPackages="false" version="1.0"/>
+</session>

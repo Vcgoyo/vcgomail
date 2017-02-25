@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="com.vcgo"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="vcgo-order-web"/>
+			<item value="vcgo-parent"/>
+			<item value="vcgo-order-service"/>
+			<item value="vcgo-order"/>
+			<item value="vcgo-order-interface"/>
+			<item value="vcgo-cart-interface"/>
+			<item value="vcgo-cart-web"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.wizards.MavenProjectSelectionDialog">
+		<item value="480" key="width"/>
+		<item value="807" key="x"/>
+		<item value="216" key="y"/>
+		<item value="450" key="height"/>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenRepositorySearchDialog">
+		<item value="480" key="width"/>
+		<item value="720" key="x"/>
+		<item value="0" key="y"/>
+		<item value="665" key="height"/>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item value="All Catalogs" key="catalog"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenModuleWizardParentPage">
+		<list key="moduleName">
+			<item value="vcgo-order-service"/>
+			<item value="vcgo-order-interface"/>
+			<item value="vcgo-cart-interface"/>
+			<item value="vcgo-sso-interface"/>
+			<item value="vcgo-sso-service"/>
+			<item value="vcgo-search-interface"/>
+			<item value="vcgo-search-service"/>
+			<item value="vcgo-interface"/>
+			<item value="vcgo-manager-service"/>
+			<item value="vcgo-manager-interface"/>
+			<item value="vcgo-manager-pojo"/>
+			<item value="vcgo-manager-dao"/>
+			<item value="dsaasdasd"/>
+			<item value="manager"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="E:\JAVA\eclipse2017workplace\vcgo-cart-web"/>
+			<item value="E:\JAVA\eclipse2017workplace\vcgo-item-web"/>
+			<item value="E:\JAVA\eclipse2017workplace\vcgo-parent"/>
+			<item value="E:\JAVA\eclipse2017workplace\vcgo-parent\pom.xml"/>
+			<item value="E:\JAVA\eclipse2017workplace\vcgo-common"/>
+			<item value="E:\JAVA\eclipse2017workplace\vcgo-common\pom.xml"/>
+			<item value="E:\JAVA\WebTemp\Project"/>
+			<item value="E:\JAVA\TempWeb"/>
+			<item value="E:\JAVA\TempWeb\Project"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

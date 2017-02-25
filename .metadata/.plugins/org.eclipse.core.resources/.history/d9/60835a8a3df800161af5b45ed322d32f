@@ -1,0 +1,22 @@
+package com.vcgo.sso.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.vcgo.common.pojo.JsonResult;
+import com.vcgo.mapper.TbUserMapper;
+import com.vcgo.sso.service.UserService;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private TbUserMapper tbUserMapper;
+	
+	@Override
+	public JsonResult checkUserMessage(String userMsg, int type) {
+		
+		return null;
+	}
+
+}

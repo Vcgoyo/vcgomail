@@ -1,0 +1,17 @@
+package com.vcgo.item.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class ItemController {
+
+	@RequestMapping("item/{itemid}")
+	public String ItemPage(@PathVariable Long itemid){
+		
+		
+		
+		return "item";
+	}
+}

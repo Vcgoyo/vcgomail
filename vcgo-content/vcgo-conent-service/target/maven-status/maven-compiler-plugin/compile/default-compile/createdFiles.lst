@@ -1,0 +1,5 @@
+com\vcgo\content\jedis\JedisClient.class
+com\vcgo\content\jedis\JedisClientPool.class
+com\vcgo\content\jedis\JedisClientCluster.class
+com\vcgo\content\service\impl\ContentCategoryServiceImpl.class
+com\vcgo\content\service\impl\ContentServiceImpl.class

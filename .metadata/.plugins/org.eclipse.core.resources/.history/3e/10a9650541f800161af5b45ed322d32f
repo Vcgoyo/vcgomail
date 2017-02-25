@@ -1,0 +1,13 @@
+package com.vcgo.sso.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.vcgo.sso.service.UserService;
+
+@Controller
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+}

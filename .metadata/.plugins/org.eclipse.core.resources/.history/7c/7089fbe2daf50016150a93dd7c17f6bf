@@ -1,0 +1,25 @@
+package com.vcgo.service;
+
+import com.vcgo.common.pojo.EasyUIDataGridResult;
+import com.vcgo.common.pojo.JsonResult;
+import com.vcgo.pojo.TbItem;
+import com.vcgo.pojo.TbItemDesc;
+/***
+ * 商品服务
+ * @author 33469
+ *
+ */
+public interface ItemService {
+	/**
+	 * 根据ID获取商品信息
+	 * @param id 商品ID
+	 * @return 商品实体
+	 */
+	TbItem geTbItemById(long id);
+	
+	EasyUIDataGridResult getItemList(Integer page,Integer size);
+	
+	JsonResult addItem(TbItem item,String desc);
+	
+	TbItemDesc getTbItemDescByItemId(long itemId)
+}

@@ -1,0 +1,5 @@
+package com.vcgo.sso.controller;
+
+public class UserController {
+
+}

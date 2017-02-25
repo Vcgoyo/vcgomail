@@ -1,0 +1,4 @@
+com\vcgo\sso\jedis\JedisClientPool.class
+com\vcgo\sso\service\impl\UserServiceImpl.class
+com\vcgo\sso\jedis\JedisClientCluster.class
+com\vcgo\sso\jedis\JedisClient.class

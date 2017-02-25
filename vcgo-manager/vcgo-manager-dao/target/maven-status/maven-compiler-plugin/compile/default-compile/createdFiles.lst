@@ -1,0 +1,11 @@
+com\vcgo\mapper\TbContentMapper.class
+com\vcgo\mapper\TbOrderItemMapper.class
+com\vcgo\mapper\TbItemDescMapper.class
+com\vcgo\mapper\TbItemMapper.class
+com\vcgo\mapper\TbItemParamMapper.class
+com\vcgo\mapper\TbOrderShippingMapper.class
+com\vcgo\mapper\TbItemCatMapper.class
+com\vcgo\mapper\TbUserMapper.class
+com\vcgo\mapper\TbContentCategoryMapper.class
+com\vcgo\mapper\TbItemParamItemMapper.class
+com\vcgo\mapper\TbOrderMapper.class

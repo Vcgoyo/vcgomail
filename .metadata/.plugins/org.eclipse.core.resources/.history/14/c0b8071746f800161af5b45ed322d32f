@@ -1,0 +1,42 @@
+package com.vcgo.sso.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.vcgo.common.pojo.JsonResult;
+import com.vcgo.common.utils.CookieUtils;
+import com.vcgo.pojo.TbUser;
+import com.vcgo.sso.service.UserService;
+
+@Controller
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+	
+	@RequestMapping("/user/check/{param}/{type}")
+	@ResponseBody
+	public JsonResult UserCheck(@PathVariable String param,@PathVariable Integer type) {
+		return userService.checkUserMessage(param, type);
+	}
+	@RequestMapping("/user/register")
+	@ResponseBody
+	public JsonResult register(TbUser user){
+		return userService.userRegister(user);
+	}
+	@RequestMapping("/user/login")
+	@ResponseBody
+	public JsonResult login(String username,String password,HttpServletRequest request,HttpServletResponse response){
+		
+		JsonResult result = userService.login(username, password);
+		CookieUtils.setCookie(request, response, "TT_TOKEN", result.getData().toString());
+		return result;
+	}
+	
+}

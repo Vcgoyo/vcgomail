@@ -1,0 +1,19 @@
+package com.vcgo.item.listener;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import javax.jms.Session;
+
+import org.springframework.jms.core.MessageCreator;
+
+public class GenListener implements MessageListener {
+
+	@Override
+	public void onMessage(Message message) {
+		
+	}
+
+
+
+}

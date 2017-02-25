@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="E:\JAVA\jre" version="1.8.0_92">
+<bootpath>
+<entry path="E:\JAVA\jre\lib\resources.jar"/>
+<entry path="E:\JAVA\jre\lib\rt.jar"/>
+<entry path="E:\JAVA\jre\lib\sunrsasign.jar"/>
+<entry path="E:\JAVA\jre\lib\jsse.jar"/>
+<entry path="E:\JAVA\jre\lib\jce.jar"/>
+<entry path="E:\JAVA\jre\lib\charsets.jar"/>
+<entry path="E:\JAVA\jre\lib\jfr.jar"/>
+<entry path="E:\JAVA\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\JAVA\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\JAVA\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="E:\JAVA" version="1.8.0_92">
+<bootpath>
+<entry path="E:\JAVA\jre\lib\resources.jar"/>
+<entry path="E:\JAVA\jre\lib\rt.jar"/>
+<entry path="E:\JAVA\jre\lib\sunrsasign.jar"/>
+<entry path="E:\JAVA\jre\lib\jsse.jar"/>
+<entry path="E:\JAVA\jre\lib\jce.jar"/>
+<entry path="E:\JAVA\jre\lib\charsets.jar"/>
+<entry path="E:\JAVA\jre\lib\jfr.jar"/>
+<entry path="E:\JAVA\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\JAVA\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\JAVA\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="E:\JAVA\JDK" version="1.8.0_92">
+<bootpath>
+<entry path="E:\JAVA\JDK\jre\lib\resources.jar"/>
+<entry path="E:\JAVA\JDK\jre\lib\rt.jar"/>
+<entry path="E:\JAVA\JDK\jre\lib\sunrsasign.jar"/>
+<entry path="E:\JAVA\JDK\jre\lib\jsse.jar"/>
+<entry path="E:\JAVA\JDK\jre\lib\jce.jar"/>
+<entry path="E:\JAVA\JDK\jre\lib\charsets.jar"/>
+<entry path="E:\JAVA\JDK\jre\lib\jfr.jar"/>
+<entry path="E:\JAVA\JDK\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\JAVA\JDK\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\JAVA\JDK\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

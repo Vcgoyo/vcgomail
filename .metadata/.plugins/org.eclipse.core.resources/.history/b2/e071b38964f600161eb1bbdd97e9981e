@@ -1,0 +1,14 @@
+import java.io.File;
+
+import freemarker.template.Configuration;
+
+public class freemakrerTest {
+	
+	public void freemarkerTest() {
+		Configuration configuration=new Configuration(Configuration.getVersion());
+		
+		configuration.setDefaultEncoding("urf-8");
+		configuration.setDirectoryForTemplateLoading(new File(""));
+				
+	}
+}

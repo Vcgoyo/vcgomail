@@ -1,0 +1,62 @@
+package com.vcgo.order.service.impl;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.vcgo.common.pojo.JsonResult;
+import com.vcgo.mapper.TbOrderItemMapper;
+import com.vcgo.mapper.TbOrderMapper;
+import com.vcgo.mapper.TbOrderShippingMapper;
+import com.vcgo.order.jedis.JedisClient;
+import com.vcgo.order.pojo.OrderInfo;
+import com.vcgo.order.service.OrderService;
+import com.vcgo.pojo.TbOrderItem;
+import com.vcgo.pojo.TbOrderShipping;
+@Service
+public class OrderServiceImpl implements OrderService {
+
+	@Autowired
+	private TbOrderMapper tborderMapper;
+	@Autowired
+	private TbOrderItemMapper orderItemMapper;
+	@Autowired
+	private TbOrderShippingMapper orderShippingMapper;
+	@Autowired
+	private JedisClient jedisClient;
+	
+	@Override
+	public JsonResult orderCommit(OrderInfo orderInfo) {
+		if(!jedisClient.exists("Order_GenID")){
+			jedisClient.set("Order_GenID", "100540");
+		}
+		Long orderInfoId = jedisClient.incr("Order_GenID");
+		orderInfo.setOrderId(orderInfo.toString());
+		orderInfo.setPostFee("0");
+		//1、未付款，2、已付款，3、未发货，4、已发货，5、交易成功，6、交易关闭
+		orderInfo.setStatus(1);
+		//订单创建时间
+		orderInfo.setCreateTime(new Date());
+		orderInfo.setUpdateTime(new Date());
+		//向订单 表插入数据
+		tborderMapper.insert(orderInfo);
+		
+		List<TbOrderItem> items = orderInfo.getOrderItems();
+		for (TbOrderItem tbOrderItem : items) {
+			Long orderItemId = jedisClient.incr("Order_Item_GenID");
+			tbOrderItem.setId(orderInfo.toString());
+			tbOrderItem.setOrderId(orderInfoId.toString());
+			orderItemMapper.insert(tbOrderItem);
+		}
+		
+		TbOrderShipping shipping = orderInfo.getOrderShipping();
+		shipping.setOrderId(orderInfoId.toString());
+		shipping.setCreated(new Date());
+		shipping.setUpdated(new Date());
+		orderShippingMapper.insert(orderShipping);
+		return null;
+	}
+
+}

@@ -1,0 +1,8 @@
+content-types/org.eclipse.core.runtime.text/charset=utf-8
+content-types/org.eclipse.core.runtime.text/file-extensions=ftl
+content-types/org.eclipse.jdt.core.javaProperties/charset=UTF-8
+content-types/org.eclipse.jst.jsp.core.jspfragmentsource/charset=utf-8
+content-types/org.eclipse.jst.jsp.core.jspsource/charset=utf-8
+content-types/org.eclipse.jst.jsp.core.tagsource/charset=utf-8
+content-types/org.eclipse.jst.jsp.core.tagxsource/charset=utf-8
+eclipse.preferences.version=1

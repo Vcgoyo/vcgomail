@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+   <!-- 配置注解驱动 -->
+	<mvc:annotation-driven />
+    
+    <!-- 视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+    
+    <!-- 配置包扫描器，扫描@Controller注解的类 -->
+	<context:component-scan base-package="com.vcgo.controller"/>
+	
+	<mvc:resources location="/css/" mapping="/css/**"/>
+	<mvc:resources location="/js/" mapping="/js/**"/>
+	
+	<dubbo:application name="taotao-manager-web" />
+	<dubbo:registry protocol="zookeeper" address="192.168.28.133:2181" />
+	<dubbo:reference interface="com.vcgo.service.ItemService" id="itemService" />
+	<dubbo:reference interface="com.vcgo.service.ItemCatService" id="itemCatService" />
+	<dubbo:reference interface="com.vcgo.content.service.ContentCategoryService" id="contentCategoryService" />
+	<dubbo:reference interface="com.vcgo.content.service.ContentService" id="contentService" />
+	<dubbo:reference interface="com.vcgo.search.service.SearchItemService" id="searchItemService" />
+	
+	<!-- ActiveMQ相关配置 -->
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<constructor-arg name="brokerURL" value="tcp://192.168.28.134:61616"></constructor-arg>
+	</bean>
+	<bean id="defaultConnectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+		<property name="targetConnectionFactory" ref="connectionFactory"/>
+	</bean>
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="defaultConnectionFactory"/>
+	</bean>
+	<bean id="topic" class="org.apache.activemq.command.ActiveMQTopic">
+	<constructor-arg name="name" value="item_add_topic"/>
+	</bean>
+</beans>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<constructor-arg name="brokerURL" value="tcp://192.168.28.134:61616"></constructor-arg>
+	</bean>
+	
+	<bean id="defaultConnectionFaction" class="org.springframework.jms.connection.SingleConnectionFactory">
+		<property name="targetConnectionFactory" ref="connectionFactory"></property>
+	</bean>
+	           <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+	           		<property name="connectionFactory" ref="defaultConnectionFaction"/>
+	           </bean>
+	           
+	<bean id="queue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg name="name" value="test-queues"></constructor-arg>
+	</bean>
+	<bean id="topic" class="org.apache.activemq.command.ActiveMQTopic">
+	 <constructor-arg name="name" value="item_add_topic"/>
+	</bean>
+	<!-- <bean id="mylistenr" class="com.vcgo.search.listenr.myListenr"/>
+	<bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+	 	<property name="connectionFactory" ref="defaultConnectionFaction"/>
+	 	<property name="destination" ref="queueMQ"/>
+	 	<property name="messageListener" ref="mylistenr"/>
+	</bean> -->
+	<bean id="item_add_listener" class="com.vcgo.search.listenr.AddItemListener"/>
+	<bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+	 	<property name="connectionFactory" ref="defaultConnectionFaction"/>
+	 	<property name="destination" ref="topic"/>
+	 	<property name="messageListener" ref="item_add_listener"/>
+	</bean>
+</beans>

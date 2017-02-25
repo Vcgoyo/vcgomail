@@ -1,0 +1,2 @@
+com\vcgo\order\controller\OrderController.class
+com\vcgo\order\intercept\AuthIntercept.class

@@ -1,0 +1,5 @@
+package com.vcgo.sso.service;
+
+public class UserService {
+
+}

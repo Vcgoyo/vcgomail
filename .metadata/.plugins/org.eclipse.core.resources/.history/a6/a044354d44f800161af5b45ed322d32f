@@ -1,0 +1,28 @@
+package com.vcgo.sso.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.vcgo.common.pojo.JsonResult;
+import com.vcgo.pojo.TbUser;
+import com.vcgo.sso.service.UserService;
+
+@Controller
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+	
+	@RequestMapping("/user/check/{param}/{type}")
+	@ResponseBody
+	public JsonResult UserCheck(@PathVariable String param,@PathVariable Integer type) {
+		return userService.checkUserMessage(param, type);
+	}
+	@RequestMapping("/user/register")
+	public JsonResult register(TbUser user){
+		return userService.userRegister(user);
+	}
+}

@@ -1,0 +1,47 @@
+package com.vcgo.order.intercept;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.vcgo.common.utils.CookieUtils;
+
+public class AuthIntercept implements HandlerInterceptor {
+
+	@Autowired
+	private UserService userService;
+	
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		String cookieValue = CookieUtils.getCookieValue(request, "TT_TOKEN");
+		if(StringUtils.isBlank(cookieValue)){
+			response.setStatus(401);
+			StringBuffer uri = request.getRequestURL();
+			System.out.println(uri);
+			response.sendRedirect("http://localhost:8073/page/login?redirecturl="+uri);
+			return false;
+		}
+		
+	}
+
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+			throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,6 @@
+com\vcgo\search\service\impl\SearchServiceImpl.class
+com\vcgo\search\dao\SearchItemDAO.class
+com\vcgo\search\service\impl\SearchItemServiceImpl.class
+com\vcgo\search\listenr\AddItemListener.class
+com\vcgo\search\listenr\myListenr.class
+com\vcgo\search\mapper\SearchItemMapper.class

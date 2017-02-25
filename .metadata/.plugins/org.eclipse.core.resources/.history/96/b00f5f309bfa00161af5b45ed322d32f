@@ -1,0 +1,5 @@
+package com.vcgo.order.pojo;
+
+public class OrderInfo {
+
+}

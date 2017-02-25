@@ -1,0 +1,30 @@
+package com.vcgo.order.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.vcgo.common.utils.CookieUtils;
+import com.vcgo.common.utils.JsonUtils;
+import com.vcgo.pojo.TbItem;
+
+@Controller
+public class OrderController {
+
+	@RequestMapping("/order/order-cart")
+	public String orderCart(Model model,HttpServletRequest request){
+		
+		String cookieValue = CookieUtils.getCookieValue(request, "CART_INFO", true);
+		List<TbItem> list = JsonUtils.jsonToList(cookieValue, TbItem.class);
+		for (TbItem tbItem : list) {
+			tbItem.setImage(StringUtils.isNotBlank(tbItem.getImage())?tbItem.getImage().split(",")[0]:"");
+		}
+		model.addAttribute("cartList", list);
+		
+	}
+}
